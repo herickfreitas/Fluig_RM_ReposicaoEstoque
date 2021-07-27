@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>Solicitações de Reposição de Estoque</processId>
-      <version>6</version>
+      <version>8</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>0</formId>
@@ -585,8 +585,7 @@
         <processId>SolRepEstoque</processId>
         <version>1</version>
       </workflowProcessEventPK>
-      <eventDescription>&#xd;
-var SeqAtualizaWf = 105;&#xd;
+      <eventDescription>var SeqAtualizaWf = 105;&#xd;
 var SeqCancelaMov = 16;&#xd;
 var SeqFaturaMov = 22;&#xd;
 var SeqConcluiMov = 24;&#xd;
@@ -601,7 +600,6 @@ function beforeStateEntry(sequenceId){&#xd;
     	atualizaEtapaWorkflow();&#xd;
     }&#xd;
     else if (sequenceId == SeqGestorGSP) {&#xd;
-    	selecionaAutorizador();&#xd;
     	anexaDocumentos();&#xd;
     }&#xd;
     else &#xd;
@@ -652,100 +650,6 @@ function AtualizaMovimento(acaoMovimento){&#xd;
 		throw e;&#xd;
 	}	&#xd;
 }&#xd;
-&#xd;
-&#xd;
-function selecionaAutorizador(){&#xd;
-	try {&#xd;
-		&#xd;
-		log.info(&quot;==========[ selecionaAutorizador Entrou ]========== &quot; );&#xd;
-		&#xd;
-		/*&#xd;
-	  	/////////////////////////////////////////////&#xd;
-	  	//		COLETANDO VALOR E C. CUSTO  	   //&#xd;
-	  	/////////////////////////////////////////////&#xd;
-		&#xd;
-		var idMov = hAPI.getCardValue(&quot;IdMov&quot;);&#xd;
-		log.info(&quot;==========[ selecionaAutorizador idMov ]========== &quot; + idMov);&#xd;
-		&#xd;
-		// Preparacao de filtro para consulta&#xd;
-		var i1 = DatasetFactory.createConstraint(&quot;IDMOV&quot;, idMov, idMov, ConstraintType.MUST);&#xd;
-		var constraints = new Array(i1);&#xd;
-		log.info(&quot;==========[ selecionaAutorizador constraints idMov ]========== &quot; + constraints);&#xd;
-		&#xd;
-		var datasetReturned = DatasetFactory.getDataset(&quot;_RM_IDMOV_CCUSTO&quot;, null, constraints, null);&#xd;
-		log.info(&quot;==========[ selecionaAutorizador  datasetReturned _RM_IDMOV_CCUSTO]========== &quot; + datasetReturned);&#xd;
-		&#xd;
-		// Retirando o campo do resultado&#xd;
-        var ccusto = datasetReturned.getValue(0, &quot;CODCCUSTO&quot;);&#xd;
-        var VALORLIQUIDO = datasetReturned.getValue(0, &quot;VALORLIQUIDO&quot;);&#xd;
-		log.info(&quot;==========[ selecionaAutorizador ccusto ]========== &quot; + ccusto);&#xd;
-		log.info(&quot;==========[ selecionaAutorizador VALORLIQUIDO ]========== &quot; + VALORLIQUIDO);&#xd;
-				&#xd;
-		&#xd;
-        // Rodando novo dataset para coletar responsável do centro de custo&#xd;
-        var a1 = DatasetFactory.createConstraint(&quot;CODCCUSTO&quot;, ccusto, ccusto, ConstraintType.MUST);&#xd;
-        var constraints = new Array(a1);&#xd;
-        log.info(&quot;==========[ selecionaAutorizador constraints ]========== &quot; + constraints);&#xd;
-		&#xd;
-		&#xd;
-	  	/////////////////////////////////////////////&#xd;
-	  	//		ATRIBUINDO GRUPO AUTORIZADOR 	   //&#xd;
-	  	/////////////////////////////////////////////&#xd;
-		&#xd;
-        // Executando chamada de dataset&#xd;
-        var datasetReturn = DatasetFactory.getDataset(&quot;_RM_CCUSTO_AUTORIZADOR&quot;, null, constraints, null);&#xd;
-		&#xd;
-		// Retirando o campo do resultado&#xd;
-        var autorizador = datasetReturn.getValue(0, &quot;&quot;);&#xd;
-		log.info(&quot;==========[ selecionaAutorizador autorizador ]========== &quot; + autorizador); &#xd;
-    	&#xd;
-    	// Gravando retorno no formulário		&#xd;
-		hAPI.setCardValue(&quot;autorizador&quot;, autorizador);&#xd;
-		&#xd;
-		&#xd;
-		&#xd;
-	  	/////////////////////////////////////////////&#xd;
-	  	//		DEFININDO FAIXA DE APROVACAO 	   //&#xd;
-	  	/////////////////////////////////////////////&#xd;
-		&#xd;
-	  	if (parseFloat(VALORLIQUIDO) &gt; parseFloat(&apos;115070.6000&apos;))&#xd;
-	     	 	var faixa = &apos;2&apos;;&#xd;
-	  	else  	//if (parseFloat(VALORLIQUIDO) &lt;= parseFloat(&apos;115070.6000&apos;))&#xd;
-	     	 	var faixa = &apos;1&apos;;&#xd;
-	  	&#xd;
-	  	// Atribuindo campo no formulário&#xd;
-	  	//hAPI.setCardValue(&quot;nivelAprov&quot;, faixa);&#xd;
-	  	&#xd;
-		&#xd;
-	  	/////////////////////////////////////&#xd;
-	  	//		QUANTIDADE DE RATEIOS 	   //&#xd;
-	  	/////////////////////////////////////&#xd;
-	  	&#xd;
-		// Preparacao de filtro para consulta&#xd;
-		var h1 = DatasetFactory.createConstraint(&quot;IDMOV&quot;, idMov, idMov, ConstraintType.MUST);&#xd;
-		var constraints = new Array(h1);&#xd;
-		log.info(&quot;==========[ selecionaAutorizador constraints idMov ]========== &quot; + constraints);&#xd;
-	  	&#xd;
-	  	&#xd;
-	    // coleta dados do dataset, utlizando filtro&#xd;
-	    var datasetRateio = DatasetFactory.getDataset(&quot;_RM_QTD_RATCCU_ITEM&quot;, null, constraints, null);&#xd;
-	    log.info(&quot;==========[ selecionaAutorizador datasetRateio ]========== &quot; + datasetRateio); &#xd;
-	  	&#xd;
-	    // Atribuindo valor de retorno à variável&#xd;
-	    var QTD_RATEIO = datasetRateio.getValue(0, &quot;QTD&quot;);&#xd;
-	    log.info(&quot;==========[ selecionaAutorizador QTD_RATEIO ]========== &quot; + QTD_RATEIO); &#xd;
-	    &#xd;
-	  	// Atribuindo campo no formulário&#xd;
-	  	//hAPI.setCardValue(&quot;qtdRateio&quot;, QTD_RATEIO);&#xd;
-		*/&#xd;
-	}&#xd;
-	&#xd;
-	catch (e) {&#xd;
-		log.error(e);&#xd;
-		throw e;&#xd;
-	}&#xd;
-	&#xd;
-} &#xd;
 &#xd;
 &#xd;
 function anexaDocumentos(){&#xd;
@@ -899,7 +803,7 @@ function atualizaEtapaWorkflow(){&#xd;
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
         <propertyId>AutomaticTasks</propertyId>
-        <version>6</version>
+        <version>8</version>
       </advancedProcessPropertiesPK>
       <propertieValue>4</propertieValue>
     </AdvancedProcessProperties>
@@ -1007,7 +911,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>6</version>
+        <version>8</version>
         <linkSequence>37</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1018,7 +922,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>6</version>
+        <version>8</version>
         <linkSequence>50</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1029,7 +933,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>6</version>
+        <version>8</version>
         <linkSequence>50</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1040,7 +944,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>6</version>
+        <version>8</version>
         <linkSequence>59</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1051,7 +955,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>6</version>
+        <version>8</version>
         <linkSequence>59</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1062,7 +966,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>6</version>
+        <version>8</version>
         <linkSequence>59</linkSequence>
         <bendSequence>3</bendSequence>
       </processLinkBendPK>
@@ -1073,7 +977,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>6</version>
+        <version>8</version>
         <linkSequence>107</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1084,7 +988,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>6</version>
+        <version>8</version>
         <linkSequence>108</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1098,7 +1002,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <extendedPropertyFieldPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>6</version>
+        <version>8</version>
         <stateSequence>0</stateSequence>
         <propertyName>AutomaticTasks</propertyName>
       </extendedPropertyFieldPK>
@@ -1116,7 +1020,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>6</processVersion>
+      <processVersion>8</processVersion>
       <stateSequence>36</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -1126,7 +1030,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>6</processVersion>
+      <processVersion>8</processVersion>
       <stateSequence>36</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -1136,7 +1040,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>6</processVersion>
+      <processVersion>8</processVersion>
       <stateSequence>36</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -1146,7 +1050,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>6</processVersion>
+      <processVersion>8</processVersion>
       <stateSequence>36</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -1156,7 +1060,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>6</processVersion>
+      <processVersion>8</processVersion>
       <stateSequence>36</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -1166,7 +1070,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>6</processVersion>
+      <processVersion>8</processVersion>
       <stateSequence>55</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -1176,7 +1080,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>6</processVersion>
+      <processVersion>8</processVersion>
       <stateSequence>55</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -1186,7 +1090,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>6</processVersion>
+      <processVersion>8</processVersion>
       <stateSequence>55</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -1196,7 +1100,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>6</processVersion>
+      <processVersion>8</processVersion>
       <stateSequence>55</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -1206,7 +1110,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>6</processVersion>
+      <processVersion>8</processVersion>
       <stateSequence>55</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -1216,7 +1120,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>6</processVersion>
+      <processVersion>8</processVersion>
       <stateSequence>105</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -1226,7 +1130,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>6</processVersion>
+      <processVersion>8</processVersion>
       <stateSequence>105</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -1236,7 +1140,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>6</processVersion>
+      <processVersion>8</processVersion>
       <stateSequence>105</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -1246,7 +1150,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>6</processVersion>
+      <processVersion>8</processVersion>
       <stateSequence>105</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -1256,7 +1160,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>6</processVersion>
+      <processVersion>8</processVersion>
       <stateSequence>105</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>

@@ -1,4 +1,3 @@
-
 var SeqAtualizaWf = 105;
 var SeqCancelaMov = 16;
 var SeqFaturaMov = 22;
@@ -14,7 +13,6 @@ function beforeStateEntry(sequenceId){
     	atualizaEtapaWorkflow();
     }
     else if (sequenceId == SeqGestorGSP) {
-    	selecionaAutorizador();
     	anexaDocumentos();
     }
     else 
@@ -65,100 +63,6 @@ function AtualizaMovimento(acaoMovimento){
 		throw e;
 	}	
 }
-
-
-function selecionaAutorizador(){
-	try {
-		
-		log.info("==========[ selecionaAutorizador Entrou ]========== " );
-		
-		/*
-	  	/////////////////////////////////////////////
-	  	//		COLETANDO VALOR E C. CUSTO  	   //
-	  	/////////////////////////////////////////////
-		
-		var idMov = hAPI.getCardValue("IdMov");
-		log.info("==========[ selecionaAutorizador idMov ]========== " + idMov);
-		
-		// Preparacao de filtro para consulta
-		var i1 = DatasetFactory.createConstraint("IDMOV", idMov, idMov, ConstraintType.MUST);
-		var constraints = new Array(i1);
-		log.info("==========[ selecionaAutorizador constraints idMov ]========== " + constraints);
-		
-		var datasetReturned = DatasetFactory.getDataset("_RM_IDMOV_CCUSTO", null, constraints, null);
-		log.info("==========[ selecionaAutorizador  datasetReturned _RM_IDMOV_CCUSTO]========== " + datasetReturned);
-		
-		// Retirando o campo do resultado
-        var ccusto = datasetReturned.getValue(0, "CODCCUSTO");
-        var VALORLIQUIDO = datasetReturned.getValue(0, "VALORLIQUIDO");
-		log.info("==========[ selecionaAutorizador ccusto ]========== " + ccusto);
-		log.info("==========[ selecionaAutorizador VALORLIQUIDO ]========== " + VALORLIQUIDO);
-				
-		
-        // Rodando novo dataset para coletar responsável do centro de custo
-        var a1 = DatasetFactory.createConstraint("CODCCUSTO", ccusto, ccusto, ConstraintType.MUST);
-        var constraints = new Array(a1);
-        log.info("==========[ selecionaAutorizador constraints ]========== " + constraints);
-		
-		
-	  	/////////////////////////////////////////////
-	  	//		ATRIBUINDO GRUPO AUTORIZADOR 	   //
-	  	/////////////////////////////////////////////
-		
-        // Executando chamada de dataset
-        var datasetReturn = DatasetFactory.getDataset("_RM_CCUSTO_AUTORIZADOR", null, constraints, null);
-		
-		// Retirando o campo do resultado
-        var autorizador = datasetReturn.getValue(0, "");
-		log.info("==========[ selecionaAutorizador autorizador ]========== " + autorizador); 
-    	
-    	// Gravando retorno no formulário		
-		hAPI.setCardValue("autorizador", autorizador);
-		
-		
-		
-	  	/////////////////////////////////////////////
-	  	//		DEFININDO FAIXA DE APROVACAO 	   //
-	  	/////////////////////////////////////////////
-		
-	  	if (parseFloat(VALORLIQUIDO) > parseFloat('115070.6000'))
-	     	 	var faixa = '2';
-	  	else  	//if (parseFloat(VALORLIQUIDO) <= parseFloat('115070.6000'))
-	     	 	var faixa = '1';
-	  	
-	  	// Atribuindo campo no formulário
-	  	//hAPI.setCardValue("nivelAprov", faixa);
-	  	
-		
-	  	/////////////////////////////////////
-	  	//		QUANTIDADE DE RATEIOS 	   //
-	  	/////////////////////////////////////
-	  	
-		// Preparacao de filtro para consulta
-		var h1 = DatasetFactory.createConstraint("IDMOV", idMov, idMov, ConstraintType.MUST);
-		var constraints = new Array(h1);
-		log.info("==========[ selecionaAutorizador constraints idMov ]========== " + constraints);
-	  	
-	  	
-	    // coleta dados do dataset, utlizando filtro
-	    var datasetRateio = DatasetFactory.getDataset("_RM_QTD_RATCCU_ITEM", null, constraints, null);
-	    log.info("==========[ selecionaAutorizador datasetRateio ]========== " + datasetRateio); 
-	  	
-	    // Atribuindo valor de retorno à variável
-	    var QTD_RATEIO = datasetRateio.getValue(0, "QTD");
-	    log.info("==========[ selecionaAutorizador QTD_RATEIO ]========== " + QTD_RATEIO); 
-	    
-	  	// Atribuindo campo no formulário
-	  	//hAPI.setCardValue("qtdRateio", QTD_RATEIO);
-		*/
-	}
-	
-	catch (e) {
-		log.error(e);
-		throw e;
-	}
-	
-} 
 
 
 function anexaDocumentos(){
