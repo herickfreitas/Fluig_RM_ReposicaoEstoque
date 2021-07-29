@@ -3,6 +3,7 @@ var SeqCancelaMov = 16;
 var SeqFaturaMov = 22;
 var SeqConcluiMov = 24;
 var SeqGestorGSP = 55;
+var SeqGestorDA = 36;
 
 function beforeStateEntry(sequenceId){
 
@@ -13,7 +14,10 @@ function beforeStateEntry(sequenceId){
     	atualizaEtapaWorkflow();
     }
     else if (sequenceId == SeqGestorGSP) {
-    	anexaDocumentos();
+    	anexaDocumentos();    	
+    }
+    else if (sequenceId == SeqGestorDA) {
+    	campoComplementarLink();
     }
     else 
 		// De acordo com os estados finais ? passada a a??o a ser realizada no Movimento
@@ -63,6 +67,45 @@ function AtualizaMovimento(acaoMovimento){
 		throw e;
 	}	
 }
+
+function campoComplementarLink() {
+	try{
+
+		/////////////////////////////////////////////////////////
+	  	//			Inserindo LINK no campo complementar	   //
+	  	/////////////////////////////////////////////////////////
+		
+		var IDMOV 		= hAPI.getCardValue("IdMov");
+		var HOSTNAME 	= hAPI.getCardValue("hostname");
+		var IDFLUIG 	= getValue('WKNumProces');
+		var LINK  		= HOSTNAME+"/portal/p/CNC/pageworkflowview?app_ecm_workflowview_detailsProcessInstanceID="+IDFLUIG;
+		
+		log.info("==========[ campoComplementarLink ENTROU!! ]========== ");
+		log.info("==========[ Inserindo link IDMOV ]========== " + IDMOV);
+		log.info("==========[ Inserindo link HOSTNAME ]========== " + HOSTNAME);
+		log.info("==========[ Inserindo link IDFLUIG ]========== " + IDFLUIG);
+		log.info("==========[ Inserindo link LINK ]========== " + LINK);
+		
+		
+		// Preparacao de chamada para o Dataset
+		var arr01 = DatasetFactory.createConstraint("IDMOV", IDMOV, IDMOV, ConstraintType.MUST);
+		var arr02 = DatasetFactory.createConstraint("LINK", LINK, LINK, ConstraintType.MUST);
+		
+		var constraints = new Array(arr01,arr02);
+		log.info("==========[ campoComplementarLink createDataset constraints ]========== " + constraints);
+		
+		// Executando chamada do Dataset, salvo que para este não há retorno.
+		DatasetFactory.getDataset("_RM_TMOV_LINKFLUIG", null, constraints, null);
+
+	}
+	
+	catch (e)
+	{
+		log.error(e);
+		throw e;
+	}
+}
+
 
 
 function anexaDocumentos(){
@@ -173,6 +216,10 @@ function anexaDocumentos(){
 function atualizaEtapaWorkflow(){
 	try {
 		
+	  	//////////////////////////////////////////////////
+	  	//			CHEFE DO SOLICITANTE	     		//
+	  	//////////////////////////////////////////////////
+		
 		log.info("==========[ atualizaEtapaWorkflow ENTROU ]==========");
 		
 		var processo = getValue("WKNumProces");     //Recupera o numero da solicitação
@@ -200,6 +247,8 @@ function atualizaEtapaWorkflow(){
 			
 		// Gravando retorno		
 		hAPI.setCardValue("chefia", chefe);
+		
+		
 		}
 	
 	catch (e)

@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>Solicitações de Reposição de Estoque</processId>
-      <version>8</version>
+      <version>23</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>0</formId>
@@ -104,8 +104,8 @@
         <version>1</version>
         <sequence>12</sequence>
       </processStatePK>
-      <stateName>Comprador - Tratar Solicitação</stateName>
-      <stateDescription>Comprador - Tratar Solicitação</stateDescription>
+      <stateName>Almoxarife - Tratar Solicitação</stateName>
+      <stateDescription>Almoxarife - Tratar Solicitação</stateDescription>
       <instruction></instruction>
       <deadlineTime>0</deadlineTime>
       <deadlineFieldName></deadlineFieldName>
@@ -260,8 +260,8 @@
         <version>1</version>
         <sequence>105</sequence>
       </processStatePK>
-      <stateName>Solicitante - Anexar Documento</stateName>
-      <stateDescription>Solicitante - Anexar Documento</stateDescription>
+      <stateName>Almoxarife - Anexar Documento</stateName>
+      <stateDescription>Almoxarife - Anexar Documento</stateDescription>
       <instruction></instruction>
       <deadlineTime>1200</deadlineTime>
       <deadlineFieldName></deadlineFieldName>
@@ -310,6 +310,110 @@
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
         <version>1</version>
+        <sequence>109</sequence>
+      </processStatePK>
+      <stateName>Aprovado - Encaminhar Designador</stateName>
+      <stateDescription>Aprovado - Encaminhar Designador</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Campo Formulário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;chefia&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>120</positionX>
+      <positionY>290</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId>Expediente_CNC_10as19</periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolRepEstoque</processId>
+        <version>1</version>
+        <sequence>110</sequence>
+      </processStatePK>
+      <stateName>Selecionar Comprador</stateName>
+      <stateDescription>Selecionar Comprador</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Campo Formulário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;comprador&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>520</positionX>
+      <positionY>290</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId>Expediente_CNC_10as19</periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>SolRepEstoque</processId>
+        <version>1</version>
         <sequence>8</sequence>
       </processStatePK>
       <stateName>Aprovar</stateName>
@@ -335,7 +439,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>120</positionX>
-      <positionY>330</positionY>
+      <positionY>470</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -382,7 +486,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>730</positionX>
-      <positionY>338</positionY>
+      <positionY>478</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -529,11 +633,28 @@
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
         <version>1</version>
-        <linkSequence>106</linkSequence>
+        <linkSequence>111</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
-      <initialStateSequence>36</initialStateSequence>
+      <initialStateSequence>109</initialStateSequence>
+      <finalStateSequence>110</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolRepEstoque</processId>
+        <version>1</version>
+        <linkSequence>112</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>110</initialStateSequence>
       <finalStateSequence>8</finalStateSequence>
       <returnLabel></returnLabel>
       <name></name>
@@ -546,7 +667,24 @@
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
         <version>1</version>
-        <linkSequence>107</linkSequence>
+        <linkSequence>113</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>36</initialStateSequence>
+      <finalStateSequence>109</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>SolRepEstoque</processId>
+        <version>1</version>
+        <linkSequence>114</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -563,7 +701,7 @@
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
         <version>1</version>
-        <linkSequence>108</linkSequence>
+        <linkSequence>115</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
@@ -590,6 +728,7 @@ var SeqCancelaMov = 16;&#xd;
 var SeqFaturaMov = 22;&#xd;
 var SeqConcluiMov = 24;&#xd;
 var SeqGestorGSP = 55;&#xd;
+var SeqGestorDA = 36;&#xd;
 &#xd;
 function beforeStateEntry(sequenceId){&#xd;
 &#xd;
@@ -600,7 +739,10 @@ function beforeStateEntry(sequenceId){&#xd;
     	atualizaEtapaWorkflow();&#xd;
     }&#xd;
     else if (sequenceId == SeqGestorGSP) {&#xd;
-    	anexaDocumentos();&#xd;
+    	anexaDocumentos();    	&#xd;
+    }&#xd;
+    else if (sequenceId == SeqGestorDA) {&#xd;
+    	campoComplementarLink();&#xd;
     }&#xd;
     else &#xd;
 		// De acordo com os estados finais ? passada a a??o a ser realizada no Movimento&#xd;
@@ -650,6 +792,45 @@ function AtualizaMovimento(acaoMovimento){&#xd;
 		throw e;&#xd;
 	}	&#xd;
 }&#xd;
+&#xd;
+function campoComplementarLink() {&#xd;
+	try{&#xd;
+&#xd;
+		/////////////////////////////////////////////////////////&#xd;
+	  	//			Inserindo LINK no campo complementar	   //&#xd;
+	  	/////////////////////////////////////////////////////////&#xd;
+		&#xd;
+		var IDMOV 		= hAPI.getCardValue(&quot;IdMov&quot;);&#xd;
+		var HOSTNAME 	= hAPI.getCardValue(&quot;hostname&quot;);&#xd;
+		var IDFLUIG 	= getValue(&apos;WKNumProces&apos;);&#xd;
+		var LINK  		= HOSTNAME+&quot;/portal/p/CNC/pageworkflowview?app_ecm_workflowview_detailsProcessInstanceID=&quot;+IDFLUIG;&#xd;
+		&#xd;
+		log.info(&quot;==========[ campoComplementarLink ENTROU!! ]========== &quot;);&#xd;
+		log.info(&quot;==========[ Inserindo link IDMOV ]========== &quot; + IDMOV);&#xd;
+		log.info(&quot;==========[ Inserindo link HOSTNAME ]========== &quot; + HOSTNAME);&#xd;
+		log.info(&quot;==========[ Inserindo link IDFLUIG ]========== &quot; + IDFLUIG);&#xd;
+		log.info(&quot;==========[ Inserindo link LINK ]========== &quot; + LINK);&#xd;
+		&#xd;
+		&#xd;
+		// Preparacao de chamada para o Dataset&#xd;
+		var arr01 = DatasetFactory.createConstraint(&quot;IDMOV&quot;, IDMOV, IDMOV, ConstraintType.MUST);&#xd;
+		var arr02 = DatasetFactory.createConstraint(&quot;LINK&quot;, LINK, LINK, ConstraintType.MUST);&#xd;
+		&#xd;
+		var constraints = new Array(arr01,arr02);&#xd;
+		log.info(&quot;==========[ campoComplementarLink createDataset constraints ]========== &quot; + constraints);&#xd;
+		&#xd;
+		// Executando chamada do Dataset, salvo que para este não há retorno.&#xd;
+		DatasetFactory.getDataset(&quot;_RM_TMOV_LINKFLUIG&quot;, null, constraints, null);&#xd;
+&#xd;
+	}&#xd;
+	&#xd;
+	catch (e)&#xd;
+	{&#xd;
+		log.error(e);&#xd;
+		throw e;&#xd;
+	}&#xd;
+}&#xd;
+&#xd;
 &#xd;
 &#xd;
 function anexaDocumentos(){&#xd;
@@ -760,6 +941,10 @@ function anexaDocumentos(){&#xd;
 function atualizaEtapaWorkflow(){&#xd;
 	try {&#xd;
 		&#xd;
+	  	//////////////////////////////////////////////////&#xd;
+	  	//			CHEFE DO SOLICITANTE	     		//&#xd;
+	  	//////////////////////////////////////////////////&#xd;
+		&#xd;
 		log.info(&quot;==========[ atualizaEtapaWorkflow ENTROU ]==========&quot;);&#xd;
 		&#xd;
 		var processo = getValue(&quot;WKNumProces&quot;);     //Recupera o numero da solicitação&#xd;
@@ -787,6 +972,8 @@ function atualizaEtapaWorkflow(){&#xd;
 			&#xd;
 		// Gravando retorno		&#xd;
 		hAPI.setCardValue(&quot;chefia&quot;, chefe);&#xd;
+		&#xd;
+		&#xd;
 		}&#xd;
 	&#xd;
 	catch (e)&#xd;
@@ -803,7 +990,7 @@ function atualizaEtapaWorkflow(){&#xd;
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
         <propertyId>AutomaticTasks</propertyId>
-        <version>8</version>
+        <version>23</version>
       </advancedProcessPropertiesPK>
       <propertieValue>4</propertieValue>
     </AdvancedProcessProperties>
@@ -811,7 +998,7 @@ function atualizaEtapaWorkflow(){&#xd;
   <list>
     <SwimLane>
       <color>8CC6FF</color>
-      <height>301</height>
+      <height>441</height>
       <width>889</width>
       <positionX>0</positionX>
       <positionY>0</positionY>
@@ -830,7 +1017,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <height>109</height>
       <width>479</width>
       <positionX>410</positionX>
-      <positionY>300</positionY>
+      <positionY>440</positionY>
       <stateName>Reprovado</stateName>
       <type>2</type>
       <parentSequence>0</parentSequence>
@@ -846,7 +1033,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <height>109</height>
       <width>411</width>
       <positionX>0</positionX>
-      <positionY>300</positionY>
+      <positionY>440</positionY>
       <stateName>Aprovado</stateName>
       <type>2</type>
       <parentSequence>0</parentSequence>
@@ -862,7 +1049,7 @@ function atualizaEtapaWorkflow(){&#xd;
     <ProcessComponGraf>
       <componType>1</componType>
       <positionX>210</positionX>
-      <positionY>320</positionY>
+      <positionY>460</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
@@ -874,7 +1061,7 @@ function atualizaEtapaWorkflow(){&#xd;
     <ProcessComponGraf>
       <componType>1</componType>
       <positionX>510</positionX>
-      <positionY>317</positionY>
+      <positionY>457</positionY>
       <processComponGrafPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
@@ -911,7 +1098,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>8</version>
+        <version>23</version>
         <linkSequence>37</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -922,7 +1109,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>8</version>
+        <version>23</version>
         <linkSequence>50</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -933,7 +1120,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>8</version>
+        <version>23</version>
         <linkSequence>50</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -944,7 +1131,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>8</version>
+        <version>23</version>
         <linkSequence>59</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -955,7 +1142,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>8</version>
+        <version>23</version>
         <linkSequence>59</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -966,7 +1153,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>8</version>
+        <version>23</version>
         <linkSequence>59</linkSequence>
         <bendSequence>3</bendSequence>
       </processLinkBendPK>
@@ -977,23 +1164,12 @@ function atualizaEtapaWorkflow(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>8</version>
-        <linkSequence>107</linkSequence>
-        <bendSequence>1</bendSequence>
-      </processLinkBendPK>
-      <positionX>232</positionX>
-      <positionY>182</positionY>
-    </ProcessLinkBend>
-    <ProcessLinkBend>
-      <processLinkBendPK>
-        <companyId>1</companyId>
-        <processId>SolRepEstoque</processId>
-        <version>8</version>
-        <linkSequence>108</linkSequence>
+        <version>23</version>
+        <linkSequence>115</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
       <positionX>747</positionX>
-      <positionY>251</positionY>
+      <positionY>262</positionY>
     </ProcessLinkBend>
   </list>
   <list/>
@@ -1002,7 +1178,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <extendedPropertyFieldPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>8</version>
+        <version>23</version>
         <stateSequence>0</stateSequence>
         <propertyName>AutomaticTasks</propertyName>
       </extendedPropertyFieldPK>
@@ -1020,7 +1196,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>8</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>36</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -1030,7 +1206,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>8</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>36</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -1040,7 +1216,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>8</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>36</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -1050,7 +1226,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>8</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>36</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -1060,7 +1236,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>8</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>36</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -1070,7 +1246,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>8</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>55</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -1080,7 +1256,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>8</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>55</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -1090,7 +1266,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>8</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>55</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -1100,7 +1276,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>8</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>55</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -1110,7 +1286,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>8</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>55</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -1120,7 +1296,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>8</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>105</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -1130,7 +1306,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>8</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>105</stateSequence>
       <appKey>approval</appKey>
       <appField>description</appField>
@@ -1140,7 +1316,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>8</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>105</stateSequence>
       <appKey>approval</appKey>
       <appField>highlight</appField>
@@ -1150,7 +1326,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>8</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>105</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -1160,7 +1336,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>8</processVersion>
+      <processVersion>23</processVersion>
       <stateSequence>105</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
