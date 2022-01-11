@@ -214,6 +214,20 @@
                 </div>
               </div>
             </div>
+            <div class="panel panel-default" id="dvReposicao">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                   <a class="collapse-icon up" data-toggle="collapse" data-parent="#accordion" href="#collapseReposicao">
+                   Informações de Reposição
+                   </a>
+                 </h4>
+              </div>
+              <div id="collapseItmMov" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <div id="tblReposicao"></div>
+                </div>
+              </div>
+            </div>
             <div class="panel panel-default" id="dvItmMovRatCcu">
               <div class="panel-heading">
                 <h4 class="panel-title">
@@ -276,6 +290,19 @@
     </div>
   </form>
 
+
+  <script type="text/template" id="templateReposicao" class="templateReposicao"> <!--mustache, este trecho foi aplicado para que o link fosse inserido-->
+    <tr>
+        <td>{{Descricao}}</td>
+        <td>{{SaldoFisico}}</td>
+        <td>{{SaldoFisicoMin}}</td>
+        <td>{{PontoRep}}</td>
+        <td>{{SaldoFisicoMax}}</td>            
+        <td>{{Sequencial}}</td>
+    </tr>        
+  </script>
+
+
   <script>
 
     // Formata moeda
@@ -293,9 +320,59 @@
     });
 
     // HERICK START
+
     var string_hostname = window.location.hostname;
     $("#hostname").val(string_hostname);
 
+
+    // recebe campo do formulario
+    var processo = document.getElementById('IdMov').value; 
+    //console.log(processo);
+
+    // Preparacao de filtro para consulta
+    var c1 = DatasetFactory.createConstraint("IDMOV", processo, processo, ConstraintType.MUST);
+    var constraints = new Array(c1);
+    //console.log(constraints);
+
+    // coleta dados do dataset, utlizando filtro
+    var datasetReturned = DatasetFactory.getDataset("_RM_ITENS_REPOSICAO", null, constraints, null);
+
+    // Gravando valores de retorno
+    var records = datasetReturned.values;
+
+    // Montando uma tabela para visualização do dataset
+    mydata = [];
+    for (var index in records) {
+        var record = records[index];
+        mydata.push({
+            Descricao: record.DESCRICAO_PRODUTO,
+            SaldoFisico: record.SALDOFISICO2,
+            SaldoFisicoMin: record.SALDFISMIN,
+            PontoRep: record.PONTOREPOSICAO,
+            SaldoFisicoMax: record.SALDOFISMAX,
+            Sequencial: record.NSEQITMMOV,
+            noResults: false
+        });
+    }
+    console.log(mydata);
+
+    
+    // preenchimento da tabela do formulario 
+    var myTable = FLUIGC.datatable('#tblReposicao', {
+        dataRequest: mydata,
+        renderContent: '.templateReposicao',
+        header: [
+            {'title': 'Descrição'},
+            {'title': 'Saldo Físico'},
+            {'title': 'Saldo Físico Min.'},
+            {'title': 'Ponto de Rep.'},
+            {'title': 'Saldo Físico Max.'},
+            {'title': 'Sequencial'}
+        ]
+      }, function(err, data) {
+        // DO SOMETHING (error or success)
+    });
+    console.log(myTable);
 
 
     // HERICK END

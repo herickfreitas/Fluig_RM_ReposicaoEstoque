@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>Solicitações de Reposição de Estoque</processId>
-      <version>1</version>
+      <version>2</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>0</formId>
@@ -990,7 +990,7 @@ function atualizaEtapaWorkflow(){&#xd;
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
         <propertyId>AutomaticTasks</propertyId>
-        <version>1</version>
+        <version>2</version>
       </advancedProcessPropertiesPK>
       <propertieValue>4</propertieValue>
     </AdvancedProcessProperties>
@@ -1098,7 +1098,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>1</version>
+        <version>2</version>
         <linkSequence>37</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1109,7 +1109,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>1</version>
+        <version>2</version>
         <linkSequence>50</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1120,7 +1120,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>1</version>
+        <version>2</version>
         <linkSequence>50</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1131,7 +1131,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>1</version>
+        <version>2</version>
         <linkSequence>59</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1142,7 +1142,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>1</version>
+        <version>2</version>
         <linkSequence>59</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1153,7 +1153,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>1</version>
+        <version>2</version>
         <linkSequence>59</linkSequence>
         <bendSequence>3</bendSequence>
       </processLinkBendPK>
@@ -1164,7 +1164,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>1</version>
+        <version>2</version>
         <linkSequence>115</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1178,7 +1178,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <extendedPropertyFieldPK>
         <companyId>1</companyId>
         <processId>SolRepEstoque</processId>
-        <version>1</version>
+        <version>2</version>
         <stateSequence>0</stateSequence>
         <propertyName>AutomaticTasks</propertyName>
       </extendedPropertyFieldPK>
@@ -1196,7 +1196,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
+      <processVersion>2</processVersion>
       <stateSequence>36</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -1206,27 +1206,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
-      <stateSequence>36</stateSequence>
-      <appKey>approval</appKey>
-      <appField>description</appField>
-      <description></description>
-    </ProcessAppConfiguration>
-    <ProcessAppConfiguration>
-      <id>0</id>
-      <tenantId>0</tenantId>
-      <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
-      <stateSequence>36</stateSequence>
-      <appKey>approval</appKey>
-      <appField>highlight</appField>
-      <description></description>
-    </ProcessAppConfiguration>
-    <ProcessAppConfiguration>
-      <id>0</id>
-      <tenantId>0</tenantId>
-      <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
+      <processVersion>2</processVersion>
       <stateSequence>36</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -1236,7 +1216,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
+      <processVersion>2</processVersion>
       <stateSequence>36</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -1246,7 +1226,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
+      <processVersion>2</processVersion>
       <stateSequence>55</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -1256,27 +1236,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
-      <stateSequence>55</stateSequence>
-      <appKey>approval</appKey>
-      <appField>description</appField>
-      <description></description>
-    </ProcessAppConfiguration>
-    <ProcessAppConfiguration>
-      <id>0</id>
-      <tenantId>0</tenantId>
-      <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
-      <stateSequence>55</stateSequence>
-      <appKey>approval</appKey>
-      <appField>highlight</appField>
-      <description></description>
-    </ProcessAppConfiguration>
-    <ProcessAppConfiguration>
-      <id>0</id>
-      <tenantId>0</tenantId>
-      <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
+      <processVersion>2</processVersion>
       <stateSequence>55</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -1286,7 +1246,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
+      <processVersion>2</processVersion>
       <stateSequence>55</stateSequence>
       <appKey>approval</appKey>
       <appField>reject</appField>
@@ -1296,7 +1256,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
+      <processVersion>2</processVersion>
       <stateSequence>105</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -1306,27 +1266,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
-      <stateSequence>105</stateSequence>
-      <appKey>approval</appKey>
-      <appField>description</appField>
-      <description></description>
-    </ProcessAppConfiguration>
-    <ProcessAppConfiguration>
-      <id>0</id>
-      <tenantId>0</tenantId>
-      <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
-      <stateSequence>105</stateSequence>
-      <appKey>approval</appKey>
-      <appField>highlight</appField>
-      <description></description>
-    </ProcessAppConfiguration>
-    <ProcessAppConfiguration>
-      <id>0</id>
-      <tenantId>0</tenantId>
-      <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
+      <processVersion>2</processVersion>
       <stateSequence>105</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -1336,17 +1276,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
-      <stateSequence>105</stateSequence>
-      <appKey>approval</appKey>
-      <appField>reject</appField>
-      <description></description>
-    </ProcessAppConfiguration>
-    <ProcessAppConfiguration>
-      <id>0</id>
-      <tenantId>0</tenantId>
-      <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
+      <processVersion>2</processVersion>
       <stateSequence>109</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -1356,27 +1286,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
-      <stateSequence>109</stateSequence>
-      <appKey>approval</appKey>
-      <appField>description</appField>
-      <description></description>
-    </ProcessAppConfiguration>
-    <ProcessAppConfiguration>
-      <id>0</id>
-      <tenantId>0</tenantId>
-      <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
-      <stateSequence>109</stateSequence>
-      <appKey>approval</appKey>
-      <appField>highlight</appField>
-      <description></description>
-    </ProcessAppConfiguration>
-    <ProcessAppConfiguration>
-      <id>0</id>
-      <tenantId>0</tenantId>
-      <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
+      <processVersion>2</processVersion>
       <stateSequence>109</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
@@ -1386,17 +1296,7 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
-      <stateSequence>109</stateSequence>
-      <appKey>approval</appKey>
-      <appField>reject</appField>
-      <description></description>
-    </ProcessAppConfiguration>
-    <ProcessAppConfiguration>
-      <id>0</id>
-      <tenantId>0</tenantId>
-      <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
+      <processVersion>2</processVersion>
       <stateSequence>110</stateSequence>
       <appKey>approval</appKey>
       <appField>title</appField>
@@ -1406,41 +1306,11 @@ function atualizaEtapaWorkflow(){&#xd;
       <id>0</id>
       <tenantId>0</tenantId>
       <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
-      <stateSequence>110</stateSequence>
-      <appKey>approval</appKey>
-      <appField>description</appField>
-      <description></description>
-    </ProcessAppConfiguration>
-    <ProcessAppConfiguration>
-      <id>0</id>
-      <tenantId>0</tenantId>
-      <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
-      <stateSequence>110</stateSequence>
-      <appKey>approval</appKey>
-      <appField>highlight</appField>
-      <description></description>
-    </ProcessAppConfiguration>
-    <ProcessAppConfiguration>
-      <id>0</id>
-      <tenantId>0</tenantId>
-      <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
+      <processVersion>2</processVersion>
       <stateSequence>110</stateSequence>
       <appKey>approval</appKey>
       <appField>approve</appField>
       <description>8</description>
-    </ProcessAppConfiguration>
-    <ProcessAppConfiguration>
-      <id>0</id>
-      <tenantId>0</tenantId>
-      <processId>SolRepEstoque</processId>
-      <processVersion>1</processVersion>
-      <stateSequence>110</stateSequence>
-      <appKey>approval</appKey>
-      <appField>reject</appField>
-      <description></description>
     </ProcessAppConfiguration>
   </list>
   <list/>
